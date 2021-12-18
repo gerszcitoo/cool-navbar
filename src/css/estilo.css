@@ -62,7 +62,7 @@ nav>ul>li:hover>a {
 }
 
 nav>ul>li:active>a {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .search {
@@ -74,8 +74,9 @@ nav>ul>li:active>a {
     margin: 10px 5px;
     background-color: white;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: 30px;
+    margin: auto;
+    margin-right: initial;
+    margin-right: 10px;
 }
 
 .search-lens {
@@ -142,9 +143,14 @@ nav>ul>li:active>a {
     padding: 10px;
     margin: 10px 5px;
     display: none;
+    max-width: fit-content;
 }
 
-.mobile-nav:hover {
+.mobile-btn {
+    width: 50px;
+}
+
+.mobile-btn:hover {
     cursor: pointer;
 }
 
@@ -211,6 +217,11 @@ nav>ul>li:active>a {
     }
     nav>ul>li {
         display: none;
+    }
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
     .mobile-nav,
     .bar {
