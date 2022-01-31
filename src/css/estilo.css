@@ -13,7 +13,7 @@ a {
 }
 
 body {
-    background-color: #8A2B95;
+    background: #8A2B95;
     margin: 0;
     overflow: overlay;
 }
@@ -61,17 +61,18 @@ nav>ul>li:hover {
     cursor: pointer;
     border-radius: 5px;
     background-color: #F5F5F5;
-    color: #111111;
     transform: rotate(-6deg) skewY(3deg) scaleX(.866025);
 }
 
-.nav-item {
-    color: black;
+nav>ul>li:hover>.nav-item {
+    color: black
 }
 
-nav>ul>li:active>a {
-    transform: scale(1.1);
-}
+
+/* 
+nav>ul>li:active>.nav-item {
+    transform: scale(1.3) !important;
+} */
 
 
 /* ----------------SEARCHBOX--------------- */
@@ -262,23 +263,65 @@ nav>ul>li:active>a {
 /* -------------------- RESPONSIVE ------------------- */
 
 @media (max-width: 670px) {
+    .primary-nav {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        inset: 0 0 0 30%;
+        height: 100%;
+        background: hsl(0, 0%, 0%, 0.75);
+        z-index: 1000;
+        transition: .3s all;
+        transform: translateX(100%);
+    }
+    .primary-nav[data-visible="true"] {
+        transform: translateX(0%);
+    }
     body {
-        background-color: red;
+        background: #2b4795;
+    }
+    nav>ul {
+        flex-direction: column;
+        padding: min(30vh, 8rem) 2em;
     }
     nav>ul>li {
-        display: none;
+        font-size: 2rem;
     }
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .mobile-nav,
     .bar {
         display: block;
         cursor: pointer;
     }
     .mobile-nav {
-        transform: translate(0%)!important;
+        z-index: 9999;
+        transform: translate(0%) !important;
+        display: flex;
+    }
+    .mobile-nav-backgorund {
+        background: #111111;
+        z-index: 9999;
+        transform: translate(0%) !important;
+        display: flex;
+        justify-content: space-between;
+    }
+    /* .nav-logo{
+        height: 50px;
+        width: 50px;
+    } */
+    .search {
+        display: none;
+    }
+    .search-mobile {
+        display: flex;
+    }
+    .search-mobile>input {
+        height: 2rem;
+        font-size: 1.3rem;
+    }
+    .search-lens {
+        height: fit-content;
+    }
+    .mobile-btn {
+        display: block;
     }
 }
